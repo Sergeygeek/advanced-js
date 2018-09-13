@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Menu</title>
+</head>
+<body>
+  <div id="menu"></div>
+  <script src="Menu.js"></script>
+  <script src="Menuitem.js"></script>
+  <script src="SubMenu.js"></script>
+  <script>
+    window.onload = function(){
+      // DOM ready
+      let menuBlock = document.getElementById('menu');
+
+      let menu = new Menu('my', 'my', [
+          new MenuItem('/', 'Home'),
+          new MenuItem('/about', 'About'),
+          new MenuItem('/contacts', 'Contacts', new Menu('sub', 'sub', [
+            new MenuItem('/about', 'About'),
+            new MenuItem('/contacts', 'Contacts'),
+          ])),
+          new MenuItem('/blog', 'Blog'),
+          new MenuItem('/policy', 'Policy'),
+      ]);
+
+      menuBlock.innerHTML = menu.render();
+      //menuBlock.innerHTML = menu.remove();
+    }
+  </script>
+</body>
+</html>
