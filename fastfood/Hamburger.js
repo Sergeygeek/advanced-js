@@ -9,6 +9,8 @@ class Hamburger {
     this.size = size;
     this.stuffing = stuffing;
     this.toppings = [];
+    this.price;
+    this.calories;
 
     // Проверяем размер
     switch(size){
