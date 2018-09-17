@@ -1,0 +1,22 @@
+{
+  "img1": {
+    "alt": "Картинка1",
+    "src": "images/min/1.jpg",
+    "fullImgSrc": "images/max/1.jpg"
+  },
+  "img2": {
+    "alt": "Картинка2",
+    "src": "images/min/2.jpg",
+    "fullImgSrc": "images/max/2.jpg"
+  },
+  "img3": {
+    "alt": "Картинка3",
+    "src": "images/min/3.jpg",
+    "fullImgSrc": "images/max/3.jpg"
+  },
+  "img4": {
+    "alt": "Картинка4",
+    "src": "images/min/4.jpg",
+    "fullImgSrc": "images/max/4.jpg"
+  }
+}

@@ -14,8 +14,9 @@ class Menu {
     render(){
         let result = `<ul class="${this.className}" id="${this.id}">`;
         for(let i = 0; i < this.items.length; i++) {
-            if (this.items[i] instanceof MenuItem){
-                result += this.items[i].renderItem();
+            if (this.items[i] instanceof MenuItem || 
+                this.items[i] instanceof SubMenu){
+                result += this.items[i].render();
             }
         }
         result += '</ul>';
@@ -29,5 +30,23 @@ class Menu {
             menu.remove();
         }
         
+    }
+}
+
+class SubMenu extends Menu {
+    constructor(href, title, id, className, items){
+        super(id, className, items);
+        this.href = href;
+        this.title = title;
+    }
+    render(){
+        return `<li><a href="${this.href}">${this.title}</a>
+                    <div class="mega-box">
+                        <div class="mega-flex">
+                            <h3>${this.title}</h3>
+                                ${super.render()}</li>
+                        </div>
+                    </div>
+                </li>`;
     }
 }
