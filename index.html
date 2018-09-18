@@ -4,27 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
   <title>Menu</title>
 </head>
 <body>
   <div id="menu"></div>
   <script src="Menu.js"></script>
   <script src="Menuitem.js"></script>
-  <script src="SubMenu.js"></script>
   <script>
     window.onload = function(){
       // DOM ready
       let menuBlock = document.getElementById('menu');
 
-      let menu = new Menu('my', 'my', [
-          new MenuItem('/', 'Home'),
-          new MenuItem('/about', 'About'),
-          new MenuItem('/contacts', 'Contacts', new Menu('sub', 'sub', [
-            new MenuItem('/about', 'About'),
-            new MenuItem('/contacts', 'Contacts'),
-          ])),
-          new MenuItem('/blog', 'Blog'),
-          new MenuItem('/policy', 'Policy'),
+      let menu = new Menu('#', 'nav-menu', [
+          new MenuItem('#', 'Home'),
+          new SubMenu('product.html', 'Man', 'subMenu', 'subMenu', [
+            new MenuItem('#', 'Dresses'),
+            new MenuItem('#', 'Tops'),
+            new MenuItem('#', 'Sweaters/Knits'),
+            new MenuItem('#', 'Jackets/Coats'),
+            new MenuItem('#', 'Blazers'),
+          ]),
+          new MenuItem('#', 'Women'),
+          new MenuItem('#', 'Kids'),
+          new MenuItem('#', 'Accoseriese'),
+          new MenuItem('#', 'Featured'),
+          new MenuItem('#', 'Hot Deals'),
       ]);
 
       menuBlock.innerHTML = menu.render();
