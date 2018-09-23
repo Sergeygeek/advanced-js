@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="form.css">
-
+    <link rel="stylesheet" href="easy_autocomplete.min.css">
+    <link rel="stylesheet" href="easy_autocomplete.theme.css">
 
 
     <title>Form Validation</title>
@@ -49,7 +50,7 @@
             </div>
             <div class="form-group">
               <label>Ваш город:</label>
-              <select name="city" id="cities"></select>
+              <input name="city" id="cities">
             </div>
             <input type="submit" id="submit" value="Отправить"
                    class="btn btn-primary btn-block">
@@ -64,30 +65,47 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="easy-autocomplete.js"></script>
+    <script src="easy_autocomplete.js"></script>
     <script src="FormValidator.js"></script>
     <script>
       window.onload = () => {
         let formValidator = new FormValidator('form', 'name', 'phone', 'e-mail');  
     }
     (($) => {
-      $.ajax({
-        method: "GET",
-        url: "city.json",
-        dataType: "json",
-        success: function(data) {
-          initCity(data);
-        }
-      });
+      // $.ajax({
+      //   method: "GET",
+      //   url: "city.json",
+      //   dataType: "json",
+      //   success: function(data) {
+      //     initCity(data);
+      //   }
+      // });
 
-      function initCity(cities) {
-        let citiesEl = ''; 
-        cities.map(city => {
-          citiesEl += `<option value="${city}">${city}</option>`
-        })
-        $('#cities').append(citiesEl);
+     // function initCity(cities) {
+      //   let citiesEl = ''; 
+      //   cities.map(city => {
+      //     citiesEl += `<option value="${city}">${city}</option>`
+      //   })
+      //   $('#cities').append(citiesEl);
+      // };
+
+
+      const options = {
+
+        url: "city.json",
+
+        getValue: "name",
+
+        list: {	
+          match: {
+            enabled: true
+          }
+        },
+
+        theme: "square"
       };
-      
+
+      $("#cities").easyAutocomplete(options);
     })(jQuery);
     </script>
   </body>
