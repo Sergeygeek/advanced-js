@@ -1,0 +1,41 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.control {
+	display: flex;
+	width: 700px;
+	background-color: cadetblue;
+	margin: 0 auto;
+}
+
+.contol__item {
+	list-style: none;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.control__link {
+	text-decoration: none;
+	color: aliceblue;
+	display: block;
+	padding: 20px;
+}
+
+.item {
+	width: 700px;
+	margin: 0 auto;
+	text-align: justify;
+	background-color: whitesmoke;
+	display: none;
+}
+
+.active {
+	background-color: whitesmoke;
+	color: black;
+}
+
+.item__active {
+	display: block;
+}
